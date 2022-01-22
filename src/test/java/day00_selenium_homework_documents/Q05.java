@@ -15,7 +15,7 @@ import java.util.List;
 
 public class Q05 {
    static WebDriver driver;
-   static WebElement kategoriMenusu;
+
 
         ////● https://www.amazon.com/ adresine gidin.
         ////            - Test 1
@@ -24,11 +24,11 @@ public class Q05 {
     @Test
    public void test01(){
 
-    List<WebElement> kategoriMenusuListesi=driver.findElements(By.xpath("//option"));
+    List<WebElement> kategoriMenusuListesi=driver.findElements(By.tagName("option"));
     if(kategoriMenusuListesi.size()==45){
         System.out.println("Kategori menusu listesi testi PASSED");
     } else{
-        System.out.println("Kategori menusu listesi testi FAILED");
+        System.out.println("Kategori menusu listesi testi FAILED\n" +kategoriMenusuListesi.size());
     }
    }
     ////-Test 2
@@ -41,7 +41,7 @@ public class Q05 {
     driver.findElement(By.xpath("(//option)[6]")).click();
     WebElement aramaKutusu=driver.findElement(By.id("twotabsearchtextbox"));
     aramaKutusu.sendKeys("java"+ Keys.ENTER);
-    WebElement javaAramaSonucu=driver.findElement(By.xpath("//span[@dir='auto']"));
+    WebElement javaAramaSonucu=driver.findElement(By.xpath("//div[@class='a-section a-spacing-small a-spacing-top-small']"));
 
        System.out.println(javaAramaSonucu.getText().contains("java") ? "Arama Sonucu Java iceriyor testi PASSED" :
                "Arama Sonucu Java iceriyor testi FAILED\n" +javaAramaSonucu.getText());
