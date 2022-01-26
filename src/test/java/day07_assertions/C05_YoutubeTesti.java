@@ -37,7 +37,7 @@ public class C05_YoutubeTesti {
     @Test
     public void imageTest(){
 //imageTest => YouTube resminin görüntülendiğini isDisplayed()) test edin
-        WebElement youtubeResmi=driver.findElement(By.xpath("(//a[@id='logo'])[1]"));
+        WebElement youtubeResmi=driver.findElement(By.xpath("(//yt-icon[@id='logo-icon'])[2]"));
         Assert.assertTrue(youtubeResmi.isDisplayed());
     }
 
