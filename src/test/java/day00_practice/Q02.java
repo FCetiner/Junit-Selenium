@@ -1,9 +1,7 @@
 package day00_practice;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -31,14 +29,18 @@ public class Q02 {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
 
+    @Before
+    public void testtenOnce(){
+
+    }
     @Test
     public void titleTest(){
         //http://www.bestbuy.com 'a gidin,
-        //   Sayfa basliginin "Best" icerdigini(contains) dogrulayin
         driver.get("http://www.bestbuy.com");
+        //   Sayfa basliginin "Best" icerdigini(contains) dogrulayin
         String actualTitle=driver.getTitle();
         String arananKelime="Best";
-        Assert.assertTrue(actualTitle.contains(arananKelime));
+        Assert.assertTrue("Title Best kelimesini icermiyor",actualTitle.contains(arananKelime));
     }
 
     @Test
@@ -55,5 +57,10 @@ public class Q02 {
         WebElement usaWebElementi=driver.findElement(By.xpath("//img[@alt='United States']"));
         boolean goruntuleniyorMu=driver.findElement(RelativeLocator.with(By.tagName("img")).toRightOf(usaWebElementi)).isDisplayed();
     Assert.assertTrue(goruntuleniyorMu);
+    }
+
+    @AfterClass
+    public static void kapat(){
+        driver.close();
     }
 }
