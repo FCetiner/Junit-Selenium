@@ -63,8 +63,6 @@ public class Q03 {
         List<WebElement> elementsAfter=driver.findElements(By.cssSelector("[onclick='deleteElement()']"));
         int sizeAfterDelete=elementsAfter.size();
 
-
-
         if((sizeBeforeDelete-number)==sizeAfterDelete){
             System.out.println("sizeAfterDelete = " + sizeAfterDelete);
             System.out.println("SUCCESS");
