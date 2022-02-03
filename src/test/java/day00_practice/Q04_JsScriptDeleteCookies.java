@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
 
-public class Q04 {
+public class Q04_JsScriptDeleteCookies {
     /*
 ...Exercise4...
 https://www.teknosa.com/ adresine gidiniz
